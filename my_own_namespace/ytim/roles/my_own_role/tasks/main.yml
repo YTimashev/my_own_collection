@@ -2,5 +2,5 @@
 # tasks file for my_own_namespace/ytim/roles/my_own_role
 - name: Call my_own_module
   my_own_module:
-    path: "{{ _path }}"
-    content: "{{ _content }}"
+    path: "{{ path }}"
+    content: "{{ content }}"

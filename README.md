@@ -145,9 +145,8 @@ Remember, you may wish to specify your host file with -i
 Done!
 
 (venv) tim@tim:~/nl/devops-netology/ansible/08-ansible-06-module/ansible$ 
-```
 </details>
-
+```
 
 ## Основная часть
 
@@ -293,6 +292,13 @@ localhost                  : ok=2    changed=0    unreachable=0    failed=0    s
 **Шаг 12.** Заполните всю документацию по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
 
 **Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
+```bash
+tim@tim:~/08-ansible-06-module/my_own_collection/my_own_namespace/ytim$ ansible-galaxy collection build
+[WARNING]: You are running the development version of Ansible. You should only run Ansible from "devel" if you are modifying the Ansible
+engine, or trying out features under development. This is a rapidly changing source of code and can become unstable at any point.
+Created collection for my_own_namespace.ytim at /home/tim/08-ansible-06-module/my_own_collection/my_own_namespace/ytim/my_own_namespace-ytim-1.0.0.tar.gz
+tim@tim:~/08-ansible-06-module/my_own_collection/my_own_namespace/ytim$ 
+```
 
 **Шаг 14.** Создайте ещё одну директорию любого наименования, перенесите туда single task playbook и архив c collection.
 

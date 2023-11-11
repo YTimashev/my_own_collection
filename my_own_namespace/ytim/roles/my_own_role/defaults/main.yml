@@ -1,4 +1,4 @@
 ---
 # defaults file for my_own_namespace/ytim/roles/my_own_role
-_path: "/home/tim/my_own_module.txt"
-_content: "Привет, Мир"
+path: "/home/tim/my_own_module.txt"
+content: "Привет, Мир"
