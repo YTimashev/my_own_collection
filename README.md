@@ -366,8 +366,7 @@ tim@tim:~/08-ansible-06-module/my_own_collection/coll_install$
 ```
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
-[ссылка на collection ]()
-[ссылка на tar.gz архив]()
+[ссылка на collection и tar.gz архив](https://github.com/YTimashev/my_own_collection/tree/main/coll_install)
 
 >Скриншот - шаг 4.
 ![4](src/4.png)
