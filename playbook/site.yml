@@ -1,0 +1,14 @@
+---
+#site.yml
+- name: Test module
+  hosts: 
+    - localhost
+  roles:
+    - my_own_namespace/ytim/roles/my_own_role
+
+ 
+#  tasks:
+#    - name: Call my_own_module
+#      my_own_module:
+#        path: "/home/tim/my_own_module.txt"
+#       content: "Привет, Мир"
