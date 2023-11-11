@@ -159,7 +159,7 @@ Done!
 >Содержание файла наполнено из предложенной в задание [статьи](https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html#creating-a-module).
 
 **Шаг 3.** Заполните файл в соответствии с требованиями Ansible так, чтобы он выполнял основную задачу: module должен создавать текстовый файл на удалённом хосте по пути, определённом в параметре `path`, с содержимым, определённым в параметре `content`.
-> [my_own_module.py](ansible/modules/my_own_module.py)
+> [my_own_module.py](my_own_namespace/ytim/plugins/modules/my_own_module.py)
 
 **Шаг 4.** Проверьте module на исполняемость локально.
 >Проверку запускаем через json файл:
@@ -265,7 +265,7 @@ tim@tim:~/08-ansible-06-module/my_own_collection$ ansible-galaxy role init my_ow
 engine, or trying out features under development. This is a rapidly changing source of code and can become unstable at any point.
 - Role my_own_namespace/ytim/roles/my_own_role was created successfully
 ```
-> [Ссылка на my_own_role](my_own_role)
+> [Ссылка на my_own_role](my_own_namespace/ytim/roles/my_own_role)
 
 **Шаг 11.** Создайте playbook для использования этой role.
 > [Ссылка на playbook role](playbook/site.yml)
