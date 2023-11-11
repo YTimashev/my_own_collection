@@ -290,7 +290,21 @@ localhost                  : ok=2    changed=0    unreachable=0    failed=0    s
 ```
 
 **Шаг 12.** Заполните всю документацию по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
-
+```bash
+tim@tim:~/08-ansible-06-module/my_own_collection$ git tag v1.0.0
+tim@tim:~/08-ansible-06-module/my_own_collection$ git push -u origin main
+Перечисление объектов: 26, готово.
+Подсчет объектов: 100% (26/26), готово.
+При сжатии изменений используется до 8 потоков
+Сжатие объектов: 100% (11/11), готово.
+Запись объектов: 100% (16/16), 7.45 КиБ | 3.72 МиБ/с, готово.
+Всего 16 (изменений 6), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+remote: Resolving deltas: 100% (6/6), completed with 5 local objects.
+To https://github.com/YTimashev/my_own_collection.git
+   1054f19..b058072  main -> main
+Ветка «main» отслеживает внешнюю ветку «main» из «origin».
+tim@tim:~/08-ansible-06-module/my_own_collection$
+```
 **Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
 ```bash
 tim@tim:~/08-ansible-06-module/my_own_collection/my_own_namespace/ytim$ ansible-galaxy collection build
