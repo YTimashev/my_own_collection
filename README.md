@@ -303,7 +303,13 @@ remote: Resolving deltas: 100% (6/6), completed with 5 local objects.
 To https://github.com/YTimashev/my_own_collection.git
    1054f19..b058072  main -> main
 Ветка «main» отслеживает внешнюю ветку «main» из «origin».
-tim@tim:~/08-ansible-06-module/my_own_collection$
+tim@tim:~/08-ansible-06-module/my_own_collection$ git push origin --tags
+Всего 0 (изменений 0), повторно использовано 0 (изменений 0), повторно использовано пакетов 0
+To https://github.com/YTimashev/my_own_collection.git
+ * [new tag]         1.0.0 -> 1.0.0
+ * [new tag]         1.0.1 -> 1.0.1
+ * [new tag]         v1.0.0 -> v1.0.0
+tim@tim:~/08-ansible-06-module/my_own_collection$ 
 ```
 **Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
 ```bash
@@ -317,21 +323,65 @@ tim@tim:~/08-ansible-06-module/my_own_collection/my_own_namespace/ytim$
 **Шаг 14.** Создайте ещё одну директорию любого наименования, перенесите туда single task playbook и архив c collection.
 
 **Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
-
+```bash
+tim@tim:~/08-ansible-06-module/my_own_collection/my_own_namespace/ytim$ cd ../../coll_install/
+tim@tim:~/08-ansible-06-module/my_own_collection/coll_install$ ls -lah
+итого 20K
+drwxrwxr-x 2 tim tim 4,0K ноя 11 23:43 .
+drwxrwxr-x 7 tim tim 4,0K ноя 11 23:39 ..
+-rw-rw-r-- 1 tim tim 6,1K ноя 11 23:43 my_own_namespace-ytim-1.0.0.tar.gz
+-rw-rw-r-- 1 tim tim  267 ноя 11 23:40 site.yml
+tim@tim:~/08-ansible-06-module/my_own_collection/coll_install$ ansible-galaxy collection install my_own_namespace-ytim-1.0.0.tar.gz
+[WARNING]: You are running the development version of Ansible. You should only run Ansible from "devel" if you are modifying the Ansible
+engine, or trying out features under development. This is a rapidly changing source of code and can become unstable at any point.
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Installing 'my_own_namespace.ytim:1.0.0' to '/home/tim/.ansible/collections/ansible_collections/my_own_namespace/ytim'
+my_own_namespace.ytim:1.0.0 was installed successfully
+tim@tim:~/08-ansible-06-module/my_own_collection/coll_install$ 
+```
 **Шаг 16.** Запустите playbook, убедитесь, что он работает.
+```bash
+tim@tim:~/08-ansible-06-module/my_own_collection/coll_install$ ansible-playbook site.yml
+[WARNING]: You are running the development version of Ansible. You should only run Ansible from "devel" if you
+are modifying the Ansible engine, or trying out features under development. This is a rapidly changing source
+of code and can become unstable at any point.
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+PLAY [Test module] ********************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************
+ok: [localhost]
+
+TASK [collections/ansible_collections/my_own_namespace/ytim/roles/my_own_role : Call my_own_module] ***********
+ok: [localhost]
+
+PLAY RECAP ****************************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+tim@tim:~/08-ansible-06-module/my_own_collection/coll_install$ 
+```
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
+[ссылка на collection ]()
+[ссылка на tar.gz архив]()
 
-## Необязательная часть
+>Скриншот - шаг 4.
+![4](src/4.png)
 
-1. Реализуйте свой модуль для создания хостов в Yandex Cloud.
-2. Модуль может и должен иметь зависимость от `yc`, основной функционал: создание ВМ с нужным сайзингом на основе нужной ОС. Дополнительные модули по созданию кластеров ClickHouse, MySQL и прочего реализовывать не надо, достаточно простейшего создания ВМ.
-3. Модуль может формировать динамическое inventory, но эта часть не является обязательной, достаточно, чтобы он делал хосты с указанной спецификацией в YAML.
-4. Протестируйте модуль на идемпотентность, исполнимость. При успехе добавьте этот модуль в свою коллекцию.
-5. Измените playbook так, чтобы он умел создавать инфраструктуру под inventory, а после устанавливал весь ваш стек Observability на нужные хосты и настраивал его.
-6. В итоге ваша коллекция обязательно должна содержать: clickhouse-role (если есть своя), lighthouse-role, vector-role, два модуля: my_own_module и модуль управления Yandex Cloud хостами и playbook, который демонстрирует создание Observability стека.
+>Скриншот - шаг 6.
+![6](src/6.png)
 
----
+>Скриншот - шаг 15.
+![15](src/15.png)
+
+>Скриншот - шаг 16.
+![16](src/16.png)
+
+
 
 ### Как оформить решение задания
 
